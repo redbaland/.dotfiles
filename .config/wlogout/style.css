@@ -1,0 +1,88 @@
+/*
+          _                         _    
+__      _| | ___   __ _  ___  _   _| |_  
+\ \ /\ / / |/ _ \ / _` |/ _ \| | | | __| 
+ \ V  V /| | (_) | (_| | (_) | |_| | |_  
+  \_/\_/ |_|\___/ \__, |\___/ \__,_|\__| 
+                  |___/                  
+ 
+----------------------------------------------------- 
+*/
+
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
+@define-color bg #1d2021;
+
+* {
+	font-family: "Fira Sans Semibold", FontAwesome;
+	background-image: none;
+	transition: 20ms;
+	box-shadow: none;
+}
+
+window {
+	background: none;
+}
+
+grid {
+  margin: 200px 400px;
+  background-color: #100719;
+}
+
+button {
+	color: #FFFFFF;
+        font-size:20px;
+        background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	border-style: solid;
+	background-color: rgba(12, 12, 12, 0.3);
+	border: 0px solid #FFFFFF;
+}
+
+
+button:active,
+button:hover {
+        color: black;
+	background-color: #F74CA0;
+	border: none;
+}
+
+button:focus {
+	background-color: #9A338C;
+	border: none;
+}
+
+/* 
+----------------------------------------------------- 
+Buttons
+----------------------------------------------------- 
+*/
+
+#lock {
+	margin: 5px;
+	border-radius: 0px;
+	background-image: image(url("icons/lock.png"));
+}
+
+#logout {
+	margin: 5px;
+	border-radius: 0px;
+	background-image: image(url("icons/logout.png"));
+}
+
+
+#shutdown {
+	margin: 5px;
+	border-radius: 0px;
+	background-image: image(url("icons/shutdown.png"));
+	color: #cc241d;
+}
+
+#reboot {
+	margin: 5px;
+	border-radius: 0px;
+	background-image: image(url("icons/reboot.png"));
+}

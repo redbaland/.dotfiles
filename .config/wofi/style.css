@@ -1,0 +1,42 @@
+* {
+  font-family: "Fira Sans semibold", FontAwesome;
+  color: #FFFFFF;
+  background: transparent;
+
+}
+
+#window {
+  background: #100719;
+  opacity: 0.9;
+  margin: 10px;
+  padding: 10px;
+}
+
+#input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+#outer-box {
+  padding: 20px;
+
+}
+
+#img {
+  margin-right: 6px;
+}
+
+#entry {
+  padding: 10px;
+  border: none;
+
+}
+
+#entry:selected {
+  background-color: #9A338C;
+}
+
+#text {
+  margin: 2px;
+}
