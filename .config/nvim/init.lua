@@ -1,7 +1,7 @@
 -- My neovim config based on kickstart.nvim
 
 -- telling vim to use python's virtual enviroment
-vim.g.python3_host_prog = '~/projects/python/myvenv/bin/python'
+-- vim.g.python3_host_prog = '~/projects/python/myvenv/bin/python'
 -- disabling netrw buitin file manager
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -189,24 +189,24 @@ vim.keymap.set(
 
 -- Keymaps for compiler plugin
 -- Open compiler
-vim.api.nvim_set_keymap('n', '<F6>', '<cmd>CompilerOpen<cr>', { desc = 'Compiler open', noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<F6>', '<cmd>CompilerOpen<cr>', { desc = 'Compiler open', noremap = true, silent = true })
 
--- Redo last selected option
-vim.api.nvim_set_keymap(
-  'n',
-  '<F7>',
-  '<cmd>CompilerStop<cr>' -- (Optional, to dispose all tasks before redo)
-    .. '<cmd>CompilerRedo<cr>',
-  { desc = 'Compiler restart', noremap = true, silent = true }
-)
-
+-- -- Redo last selected option
+-- vim.api.nvim_set_keymap(
+--   'n',
+--   '<F7>',
+--   '<cmd>CompilerStop<cr>' -- (Optional, to dispose all tasks before redo)
+--     .. '<cmd>CompilerRedo<cr>',
+--   { desc = 'Compiler restart', noremap = true, silent = true }
+-- )
+--
 -- Toggle compiler results
-vim.api.nvim_set_keymap('n', '<F8>', '<cmd>CompilerToggleResults<cr>', { desc = 'Compiler toggle results', noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<F8>', '<cmd>CompilerToggleResults<cr>', { desc = 'Compiler toggle results', noremap = true, silent = true })
 
 -- Keymap for dap-ui
 vim.keymap.set('n', '<leader>td', "<cmd>lua require'dapui'.toggle()<CR>", { desc = '[T]oggle [D]ap UI' })
 -- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
+-- See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
 --  See `:help vim.highlight.on_yank()`
