@@ -911,7 +911,7 @@ require('lazy').setup({
       'TmuxNavigateDown',
       'TmuxNavigateUp',
       'TmuxNavigateRight',
-      'TmuxNavigatePrevious',
+      -- 'TmuxNavigatePrevious',
     },
   },
 
