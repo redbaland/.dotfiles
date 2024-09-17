@@ -310,7 +310,7 @@ require('lazy').setup({
         ['<C-j>'] = { 'To lower window', _ = 'which_key_ignore' },
         ['<C-k>'] = { 'To upper window', _ = 'which_key_ignore' },
         ['<C-l>'] = { 'To right window', _ = 'which_key_ignore' },
-        ['<C-\\>'] = { 'To previous split', _ = 'which_key_ignore' },
+        -- ['<C-\\>'] = { 'To previous split', _ = 'which_key_ignore' },
       }
     end,
   },
