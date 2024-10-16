@@ -164,47 +164,9 @@ vim.keymap.set(
   { desc = '[T]oggle Conditional [B]reakpoint' }
 )
 
--- -- Keymaps for compiling
--- local function get_file_name(file)
---   return file:match '^.+/(.+)$'
--- end
--- local function finalCommand()
---   local currentFile = vim.fn.expand '%:p'
---   local FileName = get_file_name(currentFile)
---   local FileName2 = string.sub(FileName, 1, -3)
---   local x = '!g++ -g -o ' .. FileName2 .. ' ' .. FileName
---   return x
--- end
--- local function gcc()
---   vim.cmd 'vsplit | terminal'
---   local command = ':wincmd l'
---   vim.cmd(command)
---   local command2 = finalCommand()
---   -- vim.cmd('call jobsend(b:terminal_job_id, ' .. command2 .. ')')
---   vim.cmd(command2)
---   local command3 = ':wincmd h'
---   vim.cmd(command3)
--- end
---
-
--- Keymaps for compiler plugin
--- Open compiler
--- vim.api.nvim_set_keymap('n', '<F6>', '<cmd>CompilerOpen<cr>', { desc = 'Compiler open', noremap = true, silent = true })
-
--- -- Redo last selected option
--- vim.api.nvim_set_keymap(
---   'n',
---   '<F7>',
---   '<cmd>CompilerStop<cr>' -- (Optional, to dispose all tasks before redo)
---     .. '<cmd>CompilerRedo<cr>',
---   { desc = 'Compiler restart', noremap = true, silent = true }
--- )
---
--- Toggle compiler results
--- vim.api.nvim_set_keymap('n', '<F8>', '<cmd>CompilerToggleResults<cr>', { desc = 'Compiler toggle results', noremap = true, silent = true })
-
 -- Keymap for dap-ui
 vim.keymap.set('n', '<leader>td', "<cmd>lua require'dapui'.toggle()<CR>", { desc = '[T]oggle [D]ap UI' })
+
 -- [[ Basic Autocommands ]]
 -- See `:help lua-guide-autocommands`
 
@@ -288,31 +250,62 @@ require('lazy').setup({
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
+    opts = {
+      icons = {
+        -- set icon mappings to true if you have a Nerd Font
+        mappings = vim.g.have_nerd_font,
+        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
+        -- default whick-key.nvim defined Nerd Font icons, otherwise define a string table
+        keys = vim.g.have_nerd_font and {} or {
+          Up = '<Up> ',
+          Down = '<Down> ',
+          Left = '<Left> ',
+          Right = '<Right> ',
+          C = '<C-…> ',
+          M = '<M-…> ',
+          D = '<D-…> ',
+          S = '<S-…> ',
+          CR = '<CR> ',
+          Esc = '<Esc> ',
+          ScrollWheelDown = '<ScrollWheelDown> ',
+          ScrollWheelUp = '<ScrollWheelUp> ',
+          NL = '<NL> ',
+          BS = '<BS> ',
+          Space = '<Space> ',
+          Tab = '<Tab> ',
+          F1 = '<F1>',
+          F2 = '<F2>',
+          F3 = '<F3>',
+          F4 = '<F4>',
+          F5 = '<F5>',
+          F6 = '<F6>',
+          F7 = '<F7>',
+          F8 = '<F8>',
+          F9 = '<F9>',
+          F10 = '<F10>',
+          F11 = '<F11>',
+          F12 = '<F12>',
+        },
+      },
 
       -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
-      require('which-key').register {
-        ['<C-h>'] = { 'To left window', _ = 'which_key_ignore' },
-        ['<C-j>'] = { 'To lower window', _ = 'which_key_ignore' },
-        ['<C-k>'] = { 'To upper window', _ = 'which_key_ignore' },
-        ['<C-l>'] = { 'To right window', _ = 'which_key_ignore' },
-        ['<C-\\>'] = { 'To previous split', _ = 'which_key_ignore' },
-      }
-    end,
+      spec = {
+        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>d', group = '[D]ocument' },
+        { '<leader>r', group = '[R]ename' },
+        { '<leader>s', group = '[S]earch' },
+        { '<leader>w', group = '[W]orkspace' },
+        { '<leader>t', group = '[T]oggle' },
+        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+
+        -- tmux navigator keymaps
+        { '<C-h>', desc = 'To left window' },
+        { '<C-j>', desc = 'To lower window' },
+        { '<C-k>', desc = 'To upper window' },
+        { '<C-l>', desc = 'To right window' },
+        { '<C-\\>', desc = 'To previous split' },
+      },
+    },
   },
 
   -- NOTE: Plugins can specify dependencies.
@@ -836,6 +829,7 @@ require('lazy').setup({
         yank = { suffix = '', options = {} },
       }
       require('mini.pairs').setup()
+      require('mini.icons').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
